@@ -2,13 +2,29 @@
 /*
 
 
-    Various stages of life cycle of thread
+            Various stages of life cycle of thread
 
-        1. New
-        2. Runnable  [Thread-pool]
-        3. Running
-        4. Waiting
-        5. Dead
+
+                1. New (Born) state - constructor
+                                ↓
+                                ↓
+                             start()
+        →   →   →   →   →  2. Runnable  ←   ←   ←   ←   ←   ←
+    ↑                           ↓                               ↑
+        [Thread-pool] OS selects thread to run (Running state)
+    ↑                           ↓                               ↑
+                                ↓
+    ↑                       ←       →                           ↑
+                        ↓               ↓
+    ↑               ↓                       ↓                   ↑
+            sleep(arg)/join(arg)        sleep()/join()
+    ←   ←    3. waiting state        3. time waiting state  →   → 
+    ↑                           ↓                               ↑
+    ↑                           ↓                               ↑
+    4. Blocked state (from running thread - try to acquire the lock)
+                                ↓
+                                ↓
+                    5. Dead/Terminated state
 
 
 
@@ -16,7 +32,7 @@
 
         1. Multithreaded applications execute two or more threads run concurrently. Hence, it is also known as Concurrency in Java. Each thread runs parallel to each other. 
 
-        2. Mulitple threads don't allocate separate memory area, hence they save memory. Also, context switching between threads takes less time.
+        2. Multiple threads don't allocate separate memory area, hence they save memory. Also, context switching between threads takes less time.
 
 
     
