@@ -7,22 +7,22 @@ Thread Three Priority : 5
 1 : main
 1 : main
 1 : main
-13 : Thread One
+14 : Thread Two
+14 : Thread Two
+14 : Thread Two
+14 : Thread Two
+15 : Thread Three
 16 : Thread Four
-15 : Thread Three
-15 : Thread Three
-14 : Thread Two
-15 : Thread Three
 13 : Thread One
-15 : Thread Three
-14 : Thread Two
-15 : Thread Three
+13 : Thread One
 13 : Thread One
 14 : Thread Two
 13 : Thread One
-14 : Thread Two
 13 : Thread One
-14 : Thread Two
+15 : Thread Three
+15 : Thread Three
+15 : Thread Three
+15 : Thread Three
 16 : Thread Four
 16 : Thread Four
 16 : Thread Four
@@ -31,4 +31,9 @@ Thread Three Priority : 5
 17 : Thread Five
 17 : Thread Five
 17 : Thread Five
+18 : Thread Six
 17 : Thread Five
+18 : Thread Six
+18 : Thread Six
+18 : Thread Six
+18 : Thread Six

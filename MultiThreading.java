@@ -92,11 +92,24 @@ class ThreadFive extends Thread {
 
     @Override
     public void run() {
-        super.run();
         for (int i = 0; i < 5; i++) {
             System.out.println(Thread.currentThread().getId() + " : " + Thread.currentThread().getName());
         }
 
+    }
+}
+
+class RunnableSix implements Runnable {
+
+    RunnableSix(String threadName){
+        new Thread(this,threadName).start();
+    }
+
+    @Override
+    public void run() {
+        for (int i = 0; i < 5; i++) {
+            System.out.println(Thread.currentThread().getId() + " : " + Thread.currentThread().getName());
+        }
     }
 }
 
@@ -127,16 +140,17 @@ public class MultiThreading {
         threadThree.start();
 
         Thread threadFour = new ThreadFour("Thread Four");
-        Thread threadFive = new ThreadFour("Thread Five");
+        Thread threadFive = new ThreadFive("Thread Five");
 
         threadFour.start();
 
         try {
-            threadFour.join(5000); // Main thread will Wait for this thread to die.
+            threadFour.join(); // Main thread will Wait for this thread to die.
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
         threadFive.start();
+        RunnableSix threadSix = new RunnableSix("Thread Six");
     }
 }
