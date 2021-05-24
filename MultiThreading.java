@@ -132,7 +132,7 @@ public class MultiThreading {
         threadFour.start();
 
         try {
-            threadFour.join(5000); // Waits for this thread to die.
+            threadFour.join(5000); // Main thread will Wait for this thread to die.
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
