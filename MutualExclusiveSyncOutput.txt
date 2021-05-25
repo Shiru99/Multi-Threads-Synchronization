@@ -1,0 +1,38 @@
+Thread 1 Started....
+Thread 2 Started....
+13 : Thread 1
+13 : Thread 1
+13 : Thread 1
+13 : Thread 1
+13 : Thread 1
+13 : 5 : Thread 1
+14 : Thread 2
+13 : 5 : Thread 1
+14 : Thread 2
+13 : 5 : Thread 1
+14 : Thread 2
+13 : 5 : Thread 1
+14 : Thread 2
+13 : 5 : Thread 1
+14 : Thread 2
+****************************************14 : 5 : Thread 2
+
+14 : 5 : Thread 2
+14 : 5 : Thread 2
+14 : 5 : Thread 2
+14 : 5 : Thread 2
+****************************************
+☠️ Critical Section of Thread 1
+☠️ Critical Section of Thread 1
+☠️ Critical Section of Thread 1
+☠️ Critical Section of Thread 1
+☠️ Critical Section of Thread 1
+----------------------------------------
+☠️ Critical Section of Thread 2
+☠️ Critical Section of Thread 2
+☠️ Critical Section of Thread 2
+☠️ Critical Section of Thread 2
+☠️ Critical Section of Thread 2
+----------------------------------------
+Thread 2 Finished....
+Thread 1 Finished....
