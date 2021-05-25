@@ -3,7 +3,7 @@
 
         1. Mutual exclusion is a property of process synchronization which states that “no two processes can exist in the critical section at any given point of time
                                     
-        2. synchronization can be done only for same shared field. (same object or same static function or block of code)
+        2. synchronization can be done only for same shared resource. (same object or same static function or block of code)
 
 */
 
