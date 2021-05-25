@@ -11,7 +11,6 @@ class ThreadZero extends Thread {
         try {
             sleep(10);
         } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
