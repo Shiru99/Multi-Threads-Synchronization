@@ -7,7 +7,7 @@ class ThreadZero extends Thread {
     @Override
     public void run() {
         super.run();
-        
+
         try {
             sleep(10);
         } catch (InterruptedException e) {
@@ -26,11 +26,11 @@ class ThreadZero extends Thread {
 
 public class Thread_Group {
     public static void main(String[] args) {
-        ThreadGroup alpha = new ThreadGroup("Group Alpha");
+        ThreadGroup alpha = new ThreadGroup("Parent Alpha");
         Thread t1 = new ThreadZero(alpha, "one");
         Thread t2 = new ThreadZero(alpha, "two");
 
-        ThreadGroup beta = new ThreadGroup("Group Beta");
+        ThreadGroup beta = new ThreadGroup("Parent Beta");
         Thread t3 = new ThreadZero(beta, "three");
         Thread t4 = new ThreadZero(beta, "four");
 
@@ -43,8 +43,12 @@ public class Thread_Group {
 
         System.out.println(beta.isDestroyed());
         System.out.println(beta.activeCount());
+
+        System.out.println(beta.getName() + ":");
+        alpha.list();
+
         alpha.stop();
         System.out.println(beta.getName() + ":");
-        beta.list();
+        alpha.list();
     }
 }
