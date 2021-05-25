@@ -21,23 +21,36 @@ class ThreadDetails {
     }
 
     void trashWithDetails(){
-        for (int i = 0; i < 40; i++) {
+        for (int i = 0; i < 40; i++)
             System.out.print("*");
-        }
         System.out.println();
 
         // critical section starts
         synchronized(this)      // This -> same object Table-td
         {
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 5; i++)
                 System.out.println("☠️ Critical Section of "+ Thread.currentThread().getName());
-            }
         }
 
         // critical section Ends
-        for (int i = 0; i < 40; i++) {
+        for (int i = 0; i < 40; i++)
             System.out.print("-");
+        System.out.println();
+    }
+
+    static void staticDetails() {
+        for (int i = 0; i < 40; i++)
+            System.out.print("*");
+        System.out.println();
+
+        synchronized(ThreadDetails.class)  // critical section in static function
+        {
+            for (int i = 0; i < 5; i++)
+                System.out.println("☠️ Critical Section of "+ Thread.currentThread().getName());
         }
+
+        for (int i = 0; i < 40; i++)
+            System.out.print("-");
         System.out.println();
     }
 }
