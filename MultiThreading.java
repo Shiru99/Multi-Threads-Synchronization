@@ -1,42 +1,57 @@
-///////////////////////////////  Multi-Threading  //////////////////////////////
-/*
+/*              Process Vs Thread
 
+        process :
+            
+            - binary instructions loaded in memory
+            - gets access to resources like memory
+            - its own stack, heap, registers
+            - resources protected from other processes
+        
+        Thread
 
-            Various stages of life cycle of thread
-
-
-                1. New (Born) state - constructor
-                                ↓
-                                ↓
-                             start()
-        →   →   →   →   →  2. Runnable  ←   ←   ←   ←   ←   ←
-    ↑                           ↓                               ↑
-        [Thread-pool] OS selects thread to run (Running state)
-    ↑                           ↓                               ↑
-                                ↓
-    ↑                       ←       →                           ↑
-                        ↓               ↓
-    ↑               ↓                       ↓                   ↑
-            sleep(arg)/join(arg)        sleep()/join()
-    ←   ←    3. waiting state        3. time waiting state  →   → 
-    ↑                           ↓                               ↑
-    ↑                           ↓                               ↑
-    4. Blocked state (from running thread - try to acquire the lock)
-                                ↓
-                                ↓
-                    5. Dead/Terminated state
+            - Unit of execution within process
+            - usually has a shared objective
+            - has shared resources like memory, heap storage, ...
 
 
 
-    MULTITHREADING (executing two or more threads simultaneously to maximum utilization of CPU)
+    Usually Thread ends - after run method hits return statement or exception is thrown
 
-        1. Multithreaded applications execute two or more threads run concurrently. Hence, it is also known as Concurrency in Java. Each thread runs parallel to each other. 
+    when does a java application end - when all the user threads have exited
+    what if you don't want application exit to wait for a thread ==> Daemon Thread
 
-        2. Multiple threads don't allocate separate memory area, hence they save memory. Also, context switching between threads takes less time.
+
+
+
+    Types of Threads :
+
+        User Threads    -   main threads & other threads with - new Thread(runnable).start()
+        Daemon Threads  -   program doesn't wait for complete execution 
+                            (in general useful for background supporting task)
+ 
+
+    Multi-Threading Or Concurrency :
+        
+        Multiple threads don't allocate separate memory area, hence they save memory. Also, context switching between threads takes less time.
 
 
     
+    Various stages of life cycle of thread :
+    
 
+                                      (imaginary Running state)                         
+                                [Thread-pool] OS selects thread to run                   
+                                                ↑
+                                                ↑                   1. waiting state
+                                                ↑                   sleep(arg)/join(arg)
+                                .start()        ↑
+new Thread() -----> New state ------------> Runnable  ---->         2. time waiting state
+                     (Born)                     ↓                   sleep(time)/join(time)      
+                                                ↓
+                                                ↓                   3. Blocked State
+                                                ↓                   from running thread - 
+                                                ↓                   try to acquire the loc
+                                        Dead/Terminated state
 */
 
 class ThreadOne extends Thread {
@@ -141,6 +156,7 @@ public class MultiThreading {
 
         threadTwo.setPriority(Thread.MAX_PRIORITY);
         threadOne.setPriority(Thread.MIN_PRIORITY);
+        threadOne.setDaemon(true);  // Daemon thread
 
         // Despite of higher priority, OS has role while selecting threads which may not
         // match priorities
