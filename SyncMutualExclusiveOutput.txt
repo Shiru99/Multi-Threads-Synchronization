@@ -14,8 +14,8 @@ Thread 2 Started....
 13 : 5 : Thread 1
 14 : Thread 2
 13 : 5 : Thread 1
-14 : Thread 2
-****************************************14 : 5 : Thread 2
+**14 : Thread 2
+**************************************14 : 5 : Thread 2
 
 14 : 5 : Thread 2
 14 : 5 : Thread 2
