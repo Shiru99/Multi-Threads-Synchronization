@@ -75,7 +75,7 @@ class Consumer extends Thread
     }
 }
 
-public class ConditionalSync {
+public class SyncConditional {
     public static void main(String[] args) {
         ProductionPlant productionPlant = new ProductionPlant();
 
