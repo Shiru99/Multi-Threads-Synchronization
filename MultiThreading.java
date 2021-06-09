@@ -40,7 +40,7 @@
     
 
                                       (imaginary Running state)                         
-                                [Thread-pool] OS selects thread to run                   
+                            [Thread-pool] OS Scheduler selects thread to run                   
                                                 ↑
                                                 ↑                   1. waiting state
                                                 ↑                   sleep(arg)/join(arg)
@@ -52,6 +52,19 @@ new Thread() -----> New state ------------> Runnable  ---->         2. time wait
                                                 ↓                   from running thread - 
                                                 ↓                   try to acquire the loc
                                         Dead/Terminated state
+
+
+    Barrier Synchronization : 
+
+            In parallel computing, a barrier is a type of synchronization method where it enables multiple threads to wait until all threads have reached a particular point of execution(barrier) before any thread(main-thread) continues.
+
+    Parallelism : (Running multiple tasks at the same time)
+
+            Two Threads running on two cores. By definition, need multiple cores
+    
+    Concurrency : (Multiple tasks in progress at the same time)
+
+            Ten Threads running on same core
 */
 
 class ThreadOne extends Thread {
