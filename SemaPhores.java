@@ -5,6 +5,11 @@
         used to managing limited resources in a concurrent environment
 
 
+    acquire() vs acquireUninterruptibly() 
+
+        acquire() is interruptible. That means if a thread A is calling acquire() on a semaphore, and thread B interrupts threads A by calling interrupt(), then an InterruptedException will be thrown on thread A.
+
+        On the other hand acquireUninterruptibly() is not interruptible. That means if a thread A is calling acquireUninterruptibly() on a semaphore, and thread B interrupts threads A by calling interrupt(), then no InterruptedException will be thrown on thread A, just that thread A will have its interrupted status set after acquireUninterruptibly() returns.
 */
 
 import java.util.*;
@@ -32,6 +37,7 @@ public class SemaPhores {
             }
 
             Thread t = new Thread(() -> {
+                // sema.acquireUninterruptibly();   // ignores interruption
                 try {
                     sema.acquire();
                     calculatePrime(num);
