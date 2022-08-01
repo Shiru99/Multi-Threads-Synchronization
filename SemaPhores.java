@@ -1,4 +1,4 @@
-/*
+/* 6.
     Semaphores : 'permit-based' access
 
         limited number of threads at a time (Lock- only one thread at a time)

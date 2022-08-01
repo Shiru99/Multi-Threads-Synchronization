@@ -1,4 +1,4 @@
-/*              Process Vs Thread
+/* 1. Process Vs Thread
 
         process :
             
@@ -178,9 +178,11 @@ public class MultiThreading {
         System.out.println("Thread Two Priority : " + threadTwo.getPriority());
         System.out.println("Thread Three Priority : " + threadThree.getPriority());
 
-        threadOne.run(); // Main thread will call this method
+        // Simple Object-method call
+        threadOne.run();    // Main thread will call this method
 
-        threadOne.start(); // Start() => adds thread to thread pool
+        // New Threads
+        threadOne.start();  // Start() => adds thread to thread pool
         threadTwo.start();
         threadThree.start();
 

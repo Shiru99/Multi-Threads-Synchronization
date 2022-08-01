@@ -1,3 +1,5 @@
+/* 3. Join for Sequential Sync */
+
 class BalanceUpdateThread extends Thread {
     public BalanceUpdateThread(String string) {
         super(string);

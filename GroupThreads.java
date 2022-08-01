@@ -1,3 +1,4 @@
+/* 2. Thread Group */
 
 class ThreadZero extends Thread {
     public ThreadZero(ThreadGroup threadGroup, String string) {
